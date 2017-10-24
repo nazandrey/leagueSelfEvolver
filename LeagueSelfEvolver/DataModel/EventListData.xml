@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<EventList xmlns="">
+  <Event>
+    <GoalComment>was okay</GoalComment>
+    <GeneralComment>11121</GeneralComment>
+    <TagList>
+      <Tag>Map</Tag>
+      <Tag>Jgl</Tag>
+    </TagList>
+  </Event>
+  <Event>
+    <GoalComment>all good</GoalComment>
+    <GeneralComment>222</GeneralComment>
+    <TagList>
+      
+    </TagList>
+  </Event>
+  <Event>
+    <GoalComment>all bad</GoalComment>
+    <GeneralComment>3333</GeneralComment>
+    <TagList>
+      
+    </TagList>
+  </Event>
+</EventList>
