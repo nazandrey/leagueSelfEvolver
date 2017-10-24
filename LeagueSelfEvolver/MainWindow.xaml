@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:LeagueSelfEvolver"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <XmlDataProvider x:Key="EventListData" Source="/DataModel/EventListData.xml" XPath="EventList" />
+    </Window.Resources>
     <Grid>
-        
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="35,135,0,0" VerticalAlignment="Top" Height="115" Width="420" ItemsSource="{Binding Source={StaticResource EventListData}, Mode=TwoWay, XPath=Event }" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Goal Comment" Binding="{Binding XPath=GoalComment}" />
+                <DataGridTextColumn Header="General Comment" Binding="{Binding XPath=GeneralComment}" />
+                <DataGridTextColumn Header="Resolution" Binding="{Binding XPath=Tags}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
