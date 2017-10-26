@@ -5,17 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LeagueSelfEvolver"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Window.Resources>
-        <XmlDataProvider x:Key="EventListData" Source="/DataModel/EventListData.xml" XPath="EventList" />
-    </Window.Resources>
+        Title="MainWindow" Height="350" Width="525" Closing="Save_Xml">
     <Grid>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Margin="35,135,0,0" VerticalAlignment="Top" Height="115" Width="420" ItemsSource="{Binding Source={StaticResource EventListData}, Mode=TwoWay, XPath=Event }" AutoGenerateColumns="False">
+        <Grid.DataContext>
+            <XmlDataProvider x:Name="eventListData" Source="/DataModel/EventListData.xml" XPath="EventList" />
+        </Grid.DataContext>
+        <DataGrid x:Name="eventListGrid" HorizontalAlignment="Left" Margin="35,135,0,0" VerticalAlignment="Top" Height="115" Width="420" ItemsSource="{Binding Mode=TwoWay, XPath=Event }" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Goal Comment" Binding="{Binding XPath=GoalComment}" />
                 <DataGridTextColumn Header="General Comment" Binding="{Binding XPath=GeneralComment}" />
                 <DataGridTextColumn Header="Resolution" Binding="{Binding XPath=Tags}"/>
             </DataGrid.Columns>
         </DataGrid>
+
+        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Height="50" Margin="270,30,0,0" VerticalAlignment="Top" Width="140" Click="Save_Xml"/>
     </Grid>
 </Window>

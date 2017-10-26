@@ -23,6 +23,14 @@ namespace LeagueSelfEvolver
         public MainWindow()
         {
             InitializeComponent();
+            string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
+            eventListData.Source = new Uri(appPath + @"/DataModel/EventListData.xml");
+        }
+
+        private void Save_Xml(object sender, EventArgs e)
+        {
+            string source = eventListData.Source.LocalPath;
+            eventListData.Document.Save(source);
         }
     }
 }
