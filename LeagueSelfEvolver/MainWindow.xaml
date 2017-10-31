@@ -16,7 +16,8 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <DataGrid x:Name="eventListGrid" HorizontalAlignment="Left" Margin="35,135,0,0" VerticalAlignment="Top" Height="115" Width="420" ItemsSource="{Binding EventList}" AutoGenerateColumns="False">
+        <Label x:Name="label" Content="{Binding Title}" Margin="0,10,0,0" VerticalAlignment="Top" Height="25" HorizontalAlignment="Center" Width="115"/>
+        <DataGrid x:Name="eventListGrid" Margin="10,40,10,65" ItemsSource="{Binding EventList}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Goal Comment" Binding="{Binding Path=GoalComment}" />
                 <DataGridTextColumn Header="General Comment" Binding="{Binding Path=GeneralComment}" />
@@ -24,6 +25,6 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="Save" Content="Save" HorizontalAlignment="Left" Height="50" Margin="270,30,0,0" VerticalAlignment="Top" Width="140" Click="Save_Xml"/>
+        <Button x:Name="Save" Content="Save" Margin="0,0,10,10" Click="Save_Xml" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="50" Width="132"/>
     </Grid>
 </Window>
