@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Goal>
+  <Title>GoalTitle1</Title>
+  <EventList xmlns="">
+    <Event>
+      <GoalComment>was okay</GoalComment>
+      <GeneralComment>11121</GeneralComment>
+      <Resolution>Resolution1</Resolution>
+    </Event>
+    <Event>
+      <GoalComment>all good</GoalComment>
+      <GeneralComment>222</GeneralComment>
+      <Resolution>Resolution2</Resolution>
+    </Event>
+    <Event>
+      <GoalComment>all bad</GoalComment>
+      <GeneralComment>3333</GeneralComment>
+      <Resolution>Resolution31</Resolution>
+    </Event>
+  </EventList>
+</Goal>

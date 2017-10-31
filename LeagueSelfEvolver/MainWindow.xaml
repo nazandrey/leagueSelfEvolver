@@ -7,14 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Closing="Save_Xml">
     <Grid>
-        <Grid.DataContext>
-            <XmlDataProvider x:Name="eventListData" Source="/DataModel/EventListData.xml" XPath="EventList" />
-        </Grid.DataContext>
-        <DataGrid x:Name="eventListGrid" HorizontalAlignment="Left" Margin="35,135,0,0" VerticalAlignment="Top" Height="115" Width="420" ItemsSource="{Binding Mode=TwoWay, XPath=Event }" AutoGenerateColumns="False">
+        <DataGrid x:Name="eventListGrid" HorizontalAlignment="Left" Margin="35,135,0,0" VerticalAlignment="Top" Height="115" Width="420" ItemsSource="{Binding EventList}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Goal Comment" Binding="{Binding XPath=GoalComment}" />
-                <DataGridTextColumn Header="General Comment" Binding="{Binding XPath=GeneralComment}" />
-                <DataGridTextColumn Header="Resolution" Binding="{Binding XPath=Tags}"/>
+                <DataGridTextColumn Header="Goal Comment" Binding="{Binding Path=GoalComment}" />
+                <DataGridTextColumn Header="General Comment" Binding="{Binding Path=GeneralComment}" />
+                <DataGridTextColumn Header="Resolution" Binding="{Binding Path=Resolution}"/>
             </DataGrid.Columns>
         </DataGrid>
 
