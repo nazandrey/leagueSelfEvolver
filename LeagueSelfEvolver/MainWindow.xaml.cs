@@ -22,15 +22,18 @@ namespace LeagueSelfEvolver
     /// </summary>
     public partial class MainWindow : Window
     {
+        GoalViewModel goalViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new GoalViewModel();
+            goalViewModel = new GoalViewModel();
+            DataContext = goalViewModel;
         }
 
         private void Save_Xml(object sender, EventArgs e)
         {
-
+            goalViewModel.SaveToXml();
         }
     }
 }

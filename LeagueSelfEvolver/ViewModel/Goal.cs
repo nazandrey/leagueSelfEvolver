@@ -12,12 +12,11 @@ namespace LeagueSelfEvolver.ViewModel
 {
     class GoalViewModel : INotifyPropertyChanged
     {
-        private const string DataPath = @"/DataModel/GoalData.xml";
+        private const string DataPath = @"DataModel/GoalData.xml";
 
         public GoalViewModel()
         {
-            string appPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().CodeBase);
-            XDocument xDoc = XDocument.Load(appPath + DataPath);
+            XDocument xDoc = XDocument.Load(DataPath);
             XNode goalNode = xDoc.Nodes().FirstOrDefault();
             if (goalNode != null)
             {
@@ -44,8 +43,20 @@ namespace LeagueSelfEvolver.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public void SaveToXml()
+        {
+            XDocument xDoc = new XDocument(
+                new XElement("Goal",
+                    new XElement("Title", Title),
+                    new XElement("EventList", EventList.Select<Event, XElement>((eventItem) => {
+                        return eventItem.ToXml();
+                    }))
+                )
+            );
+            xDoc.Save(DataPath);
         }
     }
 }
