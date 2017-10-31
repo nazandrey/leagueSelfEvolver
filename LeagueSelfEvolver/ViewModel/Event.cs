@@ -15,6 +15,12 @@ namespace LeagueSelfEvolver.ViewModel
         private string generalComment;
         private string resolution;
 
+        public Event()
+        {
+            goalComment = "";
+            generalComment = "";
+            resolution = "";
+        }
         public Event(XElement eventEl)
         {
             goalComment = eventEl.Element("GoalComment").Value;
