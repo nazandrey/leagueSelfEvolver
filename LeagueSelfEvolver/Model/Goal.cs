@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LeagueSelfEvolver.ViewModel
+namespace LeagueSelfEvolver.Model
 {
-    class GoalViewModel : INotifyPropertyChanged
+    class GoalModel : INotifyPropertyChanged
     {
         private const string DataPath = @"DataModel/GoalData.xml";
 
-        public GoalViewModel()
+        public GoalModel()
         {
             XDocument xDoc = XDocument.Load(DataPath);
             XNode goalNode = xDoc.Nodes().FirstOrDefault();

@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using LeagueSelfEvolver.ViewModel;
+using LeagueSelfEvolver.Model;
 
 namespace LeagueSelfEvolver
 {
@@ -22,18 +22,18 @@ namespace LeagueSelfEvolver
     /// </summary>
     public partial class MainWindow : Window
     {
-        GoalViewModel goalViewModel;
+        GoalModel goalModel;
 
         public MainWindow()
         {
             InitializeComponent();
-            goalViewModel = new GoalViewModel();
-            DataContext = goalViewModel;
+            goalModel = new GoalModel();
+            DataContext = goalModel;
         }
 
         private void Save_Xml(object sender, EventArgs e)
         {
-            goalViewModel.SaveToXml();
+            goalModel.SaveToXml();
         }
     }
 }

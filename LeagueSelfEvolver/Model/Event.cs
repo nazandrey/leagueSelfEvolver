@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace LeagueSelfEvolver.ViewModel
+namespace LeagueSelfEvolver.Model
 {
     class Event : INotifyPropertyChanged
     {
