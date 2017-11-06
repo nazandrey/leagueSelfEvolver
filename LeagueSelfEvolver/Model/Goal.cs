@@ -12,7 +12,7 @@ namespace LeagueSelfEvolver.Model
 {
     class GoalModel : INotifyPropertyChanged
     {
-        private const string DataPath = @"DataModel/GoalData.xml";
+        private const string DataPath = @"Data/GoalData.xml";
 
         public GoalModel()
         {
