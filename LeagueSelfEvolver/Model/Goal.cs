@@ -38,7 +38,7 @@ namespace LeagueSelfEvolver.Model
         }
 
         public ObservableCollection<Event> EventList { get; set; }
-        public string Title { get; private set; }
+        public string Title { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")

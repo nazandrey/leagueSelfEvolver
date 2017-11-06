@@ -55,8 +55,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\EditTextBox.xaml.cs">
+      <DependentUpon>EditTextBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\Goal.cs" />
+    <Page Include="Controls\EditTextBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
