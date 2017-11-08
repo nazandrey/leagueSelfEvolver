@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:LeagueSelfEvolver.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-        <TextBox x:Name="editTextBox" 
+        <!--<TextBox x:Name="editTextBox" 
                  DataContext="{Binding ElementName=editBoxRoot}"
                  FocusableChanged="editTextBox_FocusableChanged" 
                  LostFocus="editTextBox_LostFocus" 
@@ -15,5 +15,5 @@
                  KeyDown="editTextBox_KeyDown" 
                  Background="{x:Null}" 
                  BorderBrush="{x:Null}"
-                 Text="{Binding Path=Value}"/>
+                 Text="{Binding Path=Value}"/>-->
 </UserControl>

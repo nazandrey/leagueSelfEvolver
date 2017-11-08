@@ -56,7 +56,7 @@ namespace LeagueSelfEvolver.Model
                     }))
                 )
             );
-            xDoc.Save(DataPath);
+            //xDoc.Save(DataPath);
         }
     }
 }
