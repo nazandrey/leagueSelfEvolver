@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using LeagueSelfEvolver.Model;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -22,9 +23,13 @@ namespace LeagueSelfEvolver
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        GoalModel goalModel;
+
         public MainPage()
         {
             this.InitializeComponent();
+            goalModel = new GoalModel();
+            DataContext = goalModel;
         }
     }
 }

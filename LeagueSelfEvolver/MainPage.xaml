@@ -5,9 +5,13 @@
     xmlns:local="using:LeagueSelfEvolver"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:telerik="using:Telerik.UI.Xaml.Controls.Grid"
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <telerik:RadDataGrid x:Name="eventListGrid" Margin="10,40,10,65" ItemsSource="{Binding EventList}" UserEditMode="Inline">
+            <telerik:RadDataGrid.Columns>
+            </telerik:RadDataGrid.Columns>
+        </telerik:RadDataGrid>        
     </Grid>
 </Page>
