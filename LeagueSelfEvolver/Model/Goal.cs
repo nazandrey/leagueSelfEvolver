@@ -2,17 +2,19 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Windows.Storage;
 
 namespace LeagueSelfEvolver.Model
 {
     class GoalModel : INotifyPropertyChanged
     {
-        private const string DataPath = @"Data/GoalData.xml";
+        private const string DataPath = @"Data\GoalData.xml";
 
         public GoalModel()
         {
@@ -46,7 +48,7 @@ namespace LeagueSelfEvolver.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        public void SaveToXml()
+        public async void SaveToXml()
         {
             XDocument xDoc = new XDocument(
                 new XElement("Goal",
@@ -56,7 +58,12 @@ namespace LeagueSelfEvolver.Model
                     }))
                 )
             );
-            //xDoc.Save(DataPath);
+
+            StorageFile file = await StorageFile.GetFileFromPathAsync(Path.Combine(Windows.ApplicationModel.Package.Current.InstalledLocation.Path, DataPath));
+            using (Stream fileStream = await file.OpenStreamForWriteAsync())
+            {
+                xDoc.Save(fileStream);
+            }
         }
     }
 }

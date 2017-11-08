@@ -12,6 +12,7 @@
         <telerik:RadDataGrid x:Name="eventListGrid" Margin="10,40,10,65" ItemsSource="{Binding EventList}" UserEditMode="Inline">
             <telerik:RadDataGrid.Columns>
             </telerik:RadDataGrid.Columns>
-        </telerik:RadDataGrid>        
+        </telerik:RadDataGrid>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Bottom" Click="Save_Xml"/>
     </Grid>
 </Page>

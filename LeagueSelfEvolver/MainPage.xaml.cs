@@ -31,5 +31,10 @@ namespace LeagueSelfEvolver
             goalModel = new GoalModel();
             DataContext = goalModel;
         }
+
+        private void Save_Xml(object sender, RoutedEventArgs e)
+        {
+            goalModel.SaveToXml();
+        }
     }
 }
