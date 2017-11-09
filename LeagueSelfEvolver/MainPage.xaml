@@ -13,6 +13,6 @@
             <telerik:RadDataGrid.Columns>
             </telerik:RadDataGrid.Columns>
         </telerik:RadDataGrid>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Bottom" Click="Save_Xml"/>
+        <Button x:Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Bottom" Click="Save_Xml"/>
     </Grid>
 </Page>
