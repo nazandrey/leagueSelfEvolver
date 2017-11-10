@@ -70,5 +70,12 @@ namespace LeagueSelfEvolver.Model
         {
             EventList.Add(new Event());
         }
+
+        public void RemoveRow(Event eventItem)
+        {
+            if (eventItem != null) {
+                EventList.Remove(eventItem);
+            }
+        }
     }
 }

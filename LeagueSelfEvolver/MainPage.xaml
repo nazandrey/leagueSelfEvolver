@@ -9,7 +9,7 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <telerik:RadDataGrid x:Name="eventListGrid" Margin="10,40,10,65" ItemsSource="{Binding EventList}" UserEditMode="Inline"/>
+        <telerik:RadDataGrid x:Name="eventListGrid" Margin="10,40,10,65" ItemsSource="{Binding EventList}" UserEditMode="Inline" KeyUp="eventListGrid_KeyUp"/>
         
         <Grid VerticalAlignment="Bottom" Height="32" Margin="10">
             <Grid.Resources>

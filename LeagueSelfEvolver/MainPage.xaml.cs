@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using LeagueSelfEvolver.Model;
+using Windows.System;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -40,6 +41,14 @@ namespace LeagueSelfEvolver
         private void Add_Row(object sender, RoutedEventArgs e)
         {
             goalModel.AddRow();
+        }
+
+        private void eventListGrid_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Delete) {
+                Event eventItem = eventListGrid.SelectedItem as Event;
+                goalModel.RemoveRow(eventItem);
+            };
         }
     }
 }
