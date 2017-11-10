@@ -9,10 +9,24 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <telerik:RadDataGrid x:Name="eventListGrid" Margin="10,40,10,65" ItemsSource="{Binding EventList}" UserEditMode="Inline">
-            <telerik:RadDataGrid.Columns>
-            </telerik:RadDataGrid.Columns>
-        </telerik:RadDataGrid>
-        <Button x:Name="saveBtn" Content="Save" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Bottom" Click="Save_Xml"/>
+        <telerik:RadDataGrid x:Name="eventListGrid" Margin="10,40,10,65" ItemsSource="{Binding EventList}" UserEditMode="Inline"/>
+        
+        <Grid VerticalAlignment="Bottom" Height="32" Margin="10">
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                </Style>
+                <Style x:Key="firstBtn" TargetType="Button">
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" x:Name="saveBtn" Content="Save" Click="Save_Xml" HorizontalAlignment="Stretch" Style="{StaticResource firstBtn}"/>
+            <Button Grid.Column="1" x:Name="addBtn" Content="Add" Click="Add_Row" HorizontalAlignment="Stretch"/>
+        </Grid>
     </Grid>
 </Page>

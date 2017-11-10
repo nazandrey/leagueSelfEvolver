@@ -36,5 +36,10 @@ namespace LeagueSelfEvolver
         {
             goalModel.SaveToXml();
         }
+
+        private void Add_Row(object sender, RoutedEventArgs e)
+        {
+            goalModel.AddRow();
+        }
     }
 }

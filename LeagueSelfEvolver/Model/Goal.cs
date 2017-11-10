@@ -65,5 +65,10 @@ namespace LeagueSelfEvolver.Model
                 xDoc.Save(fileStream);
             }
         }
+
+        public void AddRow()
+        {
+            EventList.Add(new Event());
+        }
     }
 }
