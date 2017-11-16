@@ -63,5 +63,10 @@ namespace LeagueSelfEvolver
                 column.Width = (eventListGrid.ActualWidth - widthDelta) / eventListGrid.Columns.Count;
             }
         }
+
+        private void helpButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            helpPopup.IsOpen = !helpPopup.IsOpen;
+        }
     }
 }
