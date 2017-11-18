@@ -46,8 +46,10 @@ namespace LeagueSelfEvolver
 
         private void eventListGrid_KeyUp(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == VirtualKey.Delete) {
+            bool isEditing = e.OriginalSource.GetType().Name == "TextBox";
+            if (e.Key == VirtualKey.Delete && !isEditing) {
                 Event eventItem = eventListGrid.SelectedItem as Event;
+                eventListGrid.CancelEdit();
                 goalModel.RemoveRow(eventItem);
             };
         }
