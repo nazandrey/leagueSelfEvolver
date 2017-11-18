@@ -59,7 +59,7 @@
             <Button Grid.Column="1" x:Name="addBtn" Content="Add" Click="Add_Row" HorizontalAlignment="Stretch"/>
         </Grid>
         <Button x:Name="helpButton" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="10,15,0,0" Background="White" BorderBrush="LightSteelBlue" Padding="0" Tapped="helpButton_Tapped"/>
-        <Popup x:Name="helpPopup" Margin="50">
+        <Popup x:Name="helpPopup" Margin="50" SizeChanged="helpPopup_SizeChanged">
             <StackPanel x:Name="helpContainer" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFE5E5E5" Padding="20">
                 <TextBlock TextWrapping="Wrap" x:Uid="helpControls" Margin="0 0 0 20">
                 </TextBlock>

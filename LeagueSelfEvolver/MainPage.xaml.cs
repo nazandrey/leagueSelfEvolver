@@ -67,6 +67,11 @@ namespace LeagueSelfEvolver
         private void helpButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             helpPopup.IsOpen = !helpPopup.IsOpen;
+        }        
+
+        private void helpPopup_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            helpContainer.Width = e.NewSize.Width;
         }
     }
 }
