@@ -118,7 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="helpControls.Text" xml:space="preserve">
-    <value>Click on row - select row
+    <value>Controls:
+
+Click on row - select row
 Double click on cell - start editing cell
 Enter or Esc - finish editing cell
 Delete - delete selected row
@@ -137,5 +139,8 @@ So, examples of activities that can be analyzed here are sport, e-sport, speeche
 2.3. General comment. When you are doing smaller goal you can gather info about big goal as side effect, so you can reflect it here, it can help you in the future (for example you understood that bigger packages has lower price).
 2.4. Goal conclusions. Here you should type tools and behaviors which will help you to achieve your smaller goal (for example you will search for bigger packages for all kinds of food).
 2.5. General conclusions. Same as goal conclusions but for big goal (for example you will search for bigger packages on every expense item).</value>
+  </data>
+  <data name="helpGuidanceToggle.Content" xml:space="preserve">
+    <value>How to</value>
   </data>
 </root>

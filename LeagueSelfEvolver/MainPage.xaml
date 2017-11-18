@@ -6,8 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:telerik="using:Telerik.UI.Xaml.Controls.Grid"
+    xmlns:common="using:LeagueSelfEvolver.Common"
     mc:Ignorable="d" 
     SizeChanged="Page_SizeChanged">
+
+    <Page.Resources>
+        <common:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBox x:Name="titleTextBox" Text="{Binding Title, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,10,10,0" Background="{x:Null}" BorderBrush="{x:Null}" TabIndex="2"/>
@@ -54,11 +59,12 @@
             <Button Grid.Column="1" x:Name="addBtn" Content="Add" Click="Add_Row" HorizontalAlignment="Stretch"/>
         </Grid>
         <Button x:Name="helpButton" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="10,15,0,0" Background="White" BorderBrush="LightSteelBlue" Padding="0" Tapped="helpButton_Tapped"/>
-        <Popup x:Name="helpPopup" Margin="50" Width="500">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFE5E5E5">
-                <TextBlock TextWrapping="Wrap" x:Uid="helpControls">
+        <Popup x:Name="helpPopup" Margin="50">
+            <StackPanel x:Name="helpContainer" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#FFE5E5E5" Padding="20">
+                <TextBlock TextWrapping="Wrap" x:Uid="helpControls" Margin="0 0 0 20">
                 </TextBlock>
-                <TextBlock TextWrapping="Wrap" x:Uid="helpGuidance">
+                <ToggleButton x:Name="helpGuidanceToggle" x:Uid="helpGuidanceToggle"></ToggleButton>
+                <TextBlock Visibility="{x:Bind helpGuidanceToggle.IsChecked, ConverterParameter=Reverse, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}" TextWrapping="Wrap" x:Uid="helpGuidance">                    
                 </TextBlock>
             </StackPanel>
         </Popup>
