@@ -120,6 +120,7 @@
   <data name="helpControls.Text" xml:space="preserve">
     <value>Controls:
 
+Click on help button - hide this popup
 Click on row - select row
 Double click on cell - start editing cell
 Enter or Esc - finish editing cell
