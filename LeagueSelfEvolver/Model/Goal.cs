@@ -62,6 +62,7 @@ namespace LeagueSelfEvolver.Model
             StorageFile file = await StorageFile.GetFileFromPathAsync(Path.Combine(Windows.ApplicationModel.Package.Current.InstalledLocation.Path, DataPath));
             using (Stream fileStream = await file.OpenStreamForWriteAsync())
             {
+                fileStream.SetLength(0); //clear old content
                 xDoc.Save(fileStream);
             }
         }
