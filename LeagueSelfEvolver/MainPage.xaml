@@ -8,7 +8,9 @@
     xmlns:telerik="using:Telerik.UI.Xaml.Controls.Grid"
     xmlns:common="using:LeagueSelfEvolver.Common"
     mc:Ignorable="d" 
-    SizeChanged="Page_SizeChanged">
+    SizeChanged="Page_SizeChanged"
+    KeyDown="Page_KeyDown"
+    >
 
     <Page.Resources>
         <common:BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>

@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Navigation;
 using LeagueSelfEvolver.Model;
 using Windows.System;
 using Telerik.UI.Xaml.Controls.Grid;
+using Windows.UI.Core;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -74,6 +75,15 @@ namespace LeagueSelfEvolver
         private void helpPopup_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             helpContainer.Width = e.NewSize.Width;
+        }
+
+        private void Page_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            CoreVirtualKeyStates ctrlState = CoreWindow.GetForCurrentThread().GetKeyState(VirtualKey.Control);
+            if (ctrlState == CoreVirtualKeyStates.Down && e.Key == VirtualKey.S)
+            {
+                goalModel.SaveToXml();
+            }
         }
     }
 }
