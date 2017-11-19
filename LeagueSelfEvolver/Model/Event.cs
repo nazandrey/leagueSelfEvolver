@@ -13,19 +13,22 @@ namespace LeagueSelfEvolver.Model
     {
         private string goalComment;
         private string generalComment;
-        private string resolution;
+        private string goalConclusions;
+        private string generalConclusions;
 
         public Event()
         {
             goalComment = "";
             generalComment = "";
-            resolution = "";
+            goalConclusions = "";
+            generalConclusions = "";
         }
         public Event(XElement eventEl)
         {
             goalComment = eventEl.Element("GoalComment").Value;
             generalComment = eventEl.Element("GeneralComment").Value;
-            resolution = eventEl.Element("Resolution").Value;
+            goalConclusions = eventEl.Element("GoalConclusions").Value;
+            generalConclusions = eventEl.Element("GeneralConclusions").Value;
         }
 
         public string GoalComment
@@ -46,13 +49,22 @@ namespace LeagueSelfEvolver.Model
                 OnPropertyChanged("GeneralComment");
             }
         }
-        public string Resolution
+        public string GoalConclusions
         {
-            get { return resolution; }
+            get { return goalConclusions; }
             set
             {
-                resolution = value;
-                OnPropertyChanged("Resolution");
+                goalConclusions = value;
+                OnPropertyChanged("GoalConclusions");
+            }
+        }
+        public string GeneralConclusions
+        {
+            get { return generalConclusions; }
+            set
+            {
+                generalConclusions = value;
+                OnPropertyChanged("GeneralConclusions");
             }
         }
 
@@ -67,7 +79,8 @@ namespace LeagueSelfEvolver.Model
             return new XElement("Event",
                 new XElement("GoalComment", GoalComment),
                 new XElement("GeneralComment", GeneralComment),
-                new XElement("Resolution", Resolution)
+                new XElement("GoalConclusions", GoalConclusions),
+                new XElement("GeneralConclusions", GeneralConclusions)
             );
         }
     }

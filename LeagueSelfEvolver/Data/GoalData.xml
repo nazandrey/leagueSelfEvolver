@@ -1,21 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Goal>
-  <Title>Look at enemy jungler</Title>
+  <Title></Title>
   <EventList xmlns="">
-    <Event>
-      <GoalComment>Was caught once, need ward</GoalComment>
-      <GeneralComment>Tough matchup against Ryze</GeneralComment>
-      <Resolution>Wards</Resolution>
-    </Event>
-    <Event>
-      <GoalComment>Bought pink and placed trinket wards, so i was safe</GoalComment>
-      <GeneralComment></GeneralComment>
-      <Resolution>Pinks and wards</Resolution>
-    </Event>
-    <Event>
-      <GoalComment>Enemy jgler started from blue because my opponent was late</GoalComment>
-      <GeneralComment>Need to protect adc if ours is fed</GeneralComment>
-      <Resolution>Watch opponent and protect adc</Resolution>
-    </Event>
   </EventList>
 </Goal>

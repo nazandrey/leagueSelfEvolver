@@ -36,8 +36,10 @@
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
                 <telerik:DataGridTextColumn PropertyName="GeneralComment" Header="General Comment" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTextColumn PropertyName="Resolution" Header="Resolution" SizeMode="Fixed"
-                                            CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>                
+                <telerik:DataGridTextColumn PropertyName="GoalConclusions" Header="Goal Conclusions" SizeMode="Fixed"
+                                            CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
+                <telerik:DataGridTextColumn PropertyName="GeneralConclusions" Header="General Conclusions" SizeMode="Fixed"
+                                            CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
             </telerik:RadDataGrid.Columns>
         </telerik:RadDataGrid>
 
