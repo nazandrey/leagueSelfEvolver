@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="47765NazandrCorner.SelfEvolver" Publisher="CN=7057CA67-9BB2-43C1-9EB6-235B65E7972D" Version="1.0.0.0" />
+  <Identity Name="47765NazandrCorner.SelfEvolver" Publisher="CN=7057CA67-9BB2-43C1-9EB6-235B65E7972D" Version="1.0.7.0" />
   <mp:PhoneIdentity PhoneProductId="a4f5ffe0-1ea5-40a2-8451-30a06a280d99" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Self Evolver</DisplayName>
@@ -16,7 +16,6 @@
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="LeagueSelfEvolver.App">
       <uap:VisualElements DisplayName="Self Evolver" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="LeagueSelfEvolver" BackgroundColor="transparent">
-        <uap:LockScreen Notification="badge" BadgeLogo="Assets\BadgeLogo.png" />
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\Square310x310Logo.png" Square71x71Logo="Assets\Square71x71Logo.png">
           <uap:ShowNameOnTiles>
             <uap:ShowOn Tile="square310x310Logo" />
