@@ -1,6 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Goal>
-  <Title></Title>
+  <Title>Put you small goal title here</Title>
   <EventList xmlns="">
+    <Event>
+      <GoalComment>General comment should be here (double tap to start edit, enter - to finish, esc or cross on the edge - cancel edit)</GoalComment>
+      <GeneralComment>General commment on this row</GeneralComment>
+      <GoalConclusions>Goal conclusions go here (you always can see help on the right top corner (click "?" sign))</GoalConclusions>
+      <GeneralConclusions>General conclusions go here </GeneralConclusions>
+    </Event>
+    <Event>
+      <GoalComment>Select row and push "del" to delete row (you can try it with that row and with others too)</GoalComment>
+      <GeneralComment></GeneralComment>
+      <GoalConclusions></GoalConclusions>
+      <GeneralConclusions></GeneralConclusions>
+    </Event>
+    <Event>
+      <GoalComment>Save button to save your changes (just exit from app doesnt work)</GoalComment>
+      <GeneralComment>Add button will add new row</GeneralComment>
+      <GoalConclusions>So now you are ready to use this app!</GoalConclusions>      
+      <GeneralConclusions>Feel free to delete all of these rows!</GeneralConclusions>
+    </Event>
   </EventList>
 </Goal>
