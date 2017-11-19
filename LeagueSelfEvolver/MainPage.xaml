@@ -34,13 +34,13 @@
                 </Style>
             </telerik:RadDataGrid.Resources>
             <telerik:RadDataGrid.Columns>
-                <telerik:DataGridTextColumn x:Name="Column" PropertyName="GoalComment" Header="Goal Comment" SizeMode="Fixed"
+                <telerik:DataGridTextColumn x:Uid="goalComment" PropertyName="GoalComment" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTextColumn PropertyName="GeneralComment" Header="General Comment" SizeMode="Fixed"
+                <telerik:DataGridTextColumn x:Uid="generalComment" PropertyName="GeneralComment" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTextColumn PropertyName="GoalConclusions" Header="Goal Conclusions" SizeMode="Fixed"
+                <telerik:DataGridTextColumn x:Uid="goalConclusions" PropertyName="GoalConclusions" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTextColumn PropertyName="GeneralConclusions" Header="General Conclusions" SizeMode="Fixed"
+                <telerik:DataGridTextColumn x:Uid="generalConclusions" PropertyName="GeneralConclusions" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
             </telerik:RadDataGrid.Columns>
         </telerik:RadDataGrid>
@@ -59,8 +59,8 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" x:Name="addBtn" Content="Add" Click="Add_Row" HorizontalAlignment="Stretch" Style="{StaticResource firstBtn}"/>
-            <Button Grid.Column="1" x:Name="saveBtn" Content="Save" Click="Save_Xml" HorizontalAlignment="Stretch"/>
+            <Button Grid.Column="0" x:Name="addBtn" x:Uid="addBtn" Click="Add_Row" HorizontalAlignment="Stretch" Style="{StaticResource firstBtn}"/>
+            <Button Grid.Column="1" x:Name="saveBtn" x:Uid="saveBtn" Click="Save_Xml" HorizontalAlignment="Stretch"/>
         </Grid>
         <Button x:Name="helpButton" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="10,15,0,0" Background="White" BorderBrush="LightSteelBlue" Padding="0" Tapped="helpButton_Tapped"/>
         <Popup x:Name="helpPopup" Margin="50" SizeChanged="helpPopup_SizeChanged">
