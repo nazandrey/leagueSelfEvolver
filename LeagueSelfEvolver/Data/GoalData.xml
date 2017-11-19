@@ -3,8 +3,8 @@
   <Title>Put you small goal title here</Title>
   <EventList xmlns="">
     <Event>
-      <GoalComment>General comment should be here (double tap to start edit, enter - to finish, esc or cross on the edge - cancel edit)</GoalComment>
-      <GeneralComment>General commment on this row</GeneralComment>
+      <GoalComment>General comment go here (double tap to start edit, enter - to finish, esc or cross on the edge - cancel edit)</GoalComment>
+      <GeneralComment>General commment go here</GeneralComment>
       <GoalConclusions>Goal conclusions go here (you always can see help on the right top corner (click "?" sign))</GoalConclusions>
       <GeneralConclusions>General conclusions go here </GeneralConclusions>
     </Event>
