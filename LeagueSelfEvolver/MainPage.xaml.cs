@@ -33,6 +33,7 @@ namespace LeagueSelfEvolver
             this.InitializeComponent();
             goalModel = new GoalModel();
             DataContext = goalModel;
+            eventListGrid.ScrollItemIntoView(goalModel.EventList.Last());
         }
 
         private void Save_Xml(object sender, RoutedEventArgs e)
