@@ -15,10 +15,19 @@ namespace LeagueSelfEvolver.Model
     class GoalModel : INotifyPropertyChanged
     {
         private const string DataPath = @"Data\GoalData.xml";
+        private StorageFolder RoamingFolder = ApplicationData.Current.RoamingFolder;
 
         public GoalModel()
         {
-            XDocument xDoc = XDocument.Load(DataPath);
+            XDocument xDoc;
+            try
+            {
+                xDoc = XDocument.Load(Path.Combine(RoamingFolder.Path, DataPath));
+            }
+            catch (IOException ex) when (ex is FileNotFoundException || ex is DirectoryNotFoundException)
+            {
+                xDoc = XDocument.Load(DataPath);
+            }
             XNode goalNode = xDoc.Nodes().FirstOrDefault();
             if (goalNode != null)
             {
@@ -59,10 +68,8 @@ namespace LeagueSelfEvolver.Model
                 )
             );
 
-            StorageFile file = await StorageFile.GetFileFromPathAsync(Path.Combine(Windows.ApplicationModel.Package.Current.InstalledLocation.Path, DataPath));
-            using (Stream fileStream = await file.OpenStreamForWriteAsync())
+            using (Stream fileStream = await RoamingFolder.OpenStreamForWriteAsync(DataPath, CreationCollisionOption.ReplaceExisting))
             {
-                fileStream.SetLength(0); //clear old content
                 xDoc.Save(fileStream);
             }
         }
