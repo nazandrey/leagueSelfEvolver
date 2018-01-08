@@ -5,7 +5,12 @@
     <Event>
       <GoalComment>General comment go here (double tap to start edit, enter - to finish, esc or cross on the edge - cancel edit)</GoalComment>
       <GeneralComment>General commment go here</GeneralComment>
-      <GoalConclusions>Goal conclusions go here (you always can see help on the right top corner (click "?" sign))</GoalConclusions>
+      <GoalConclusions>
+        <Conclusion>
+          <Tag></Tag>
+          <Description>Goal conclusions go here (you always can see help on the right top corner (click "?" sign))</Description>
+        </Conclusion>
+      </GoalConclusions>
       <GeneralConclusions>General conclusions go here </GeneralConclusions>
     </Event>
     <Event>
@@ -17,7 +22,16 @@
     <Event>
       <GoalComment>Save button to save your changes (just exit from app doesnt work)</GoalComment>
       <GeneralComment>Add button will add new row</GeneralComment>
-      <GoalConclusions>So now you are ready to use this app!</GoalConclusions>      
+      <GoalConclusions>
+        <Conclusion>
+          <Tag>Tag</Tag>          
+          <Description>So now you are ready to use this app!</Description>
+        </Conclusion>
+        <Conclusion>
+          <Tag>Tag2</Tag>
+          <Description>So now you are ready to use this app yeeah!</Description>
+        </Conclusion>
+      </GoalConclusions>      
       <GeneralConclusions>Feel free to delete all of these rows!</GeneralConclusions>
     </Event>
   </EventList>

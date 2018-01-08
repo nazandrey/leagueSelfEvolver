@@ -105,6 +105,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Conclusion.cs" />
+    <Compile Include="Model\ConclusionDictExtensions.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\Goal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
