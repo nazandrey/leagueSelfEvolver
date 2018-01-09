@@ -7,7 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:telerik="using:Telerik.UI.Xaml.Controls.Grid"
     xmlns:common="using:LeagueSelfEvolver.Common"
-    mc:Ignorable="d" 
+    xmlns:model="using:LeagueSelfEvolver.Model"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Type=model:GoalModel, IsDesignTimeCreatable=True}" 
     SizeChanged="Page_SizeChanged"
     KeyDown="Page_KeyDown"
     >
@@ -32,16 +34,25 @@
                     <Setter Property="TextWrapping" Value="Wrap"></Setter>
                     <Setter Property="Padding" Value="8"></Setter>
                 </Style>
+                <DataTemplate x:Key="ConclusionTemplate">
+                    <TextBlock Text="{Binding Description}" />
+                </DataTemplate>
+                <DataTemplate x:Key="GoalConclusionsTemplate">
+                    <ListView ItemsSource="{Binding GoalConclusions}" ItemTemplate="{StaticResource ConclusionTemplate}"/>
+                </DataTemplate>
+                <DataTemplate x:Key="GeneralConclusionsTemplate">
+                    <ListView ItemsSource="{Binding GeneralConclusions}" ItemTemplate="{StaticResource ConclusionTemplate}"/>
+                </DataTemplate>
             </telerik:RadDataGrid.Resources>
             <telerik:RadDataGrid.Columns>
                 <telerik:DataGridTextColumn x:Uid="goalComment" PropertyName="GoalComment" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
                 <telerik:DataGridTextColumn x:Uid="generalComment" PropertyName="GeneralComment" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTextColumn x:Uid="goalConclusions" PropertyName="GoalConclusions" SizeMode="Fixed"
-                                            CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTextColumn x:Uid="generalConclusions" PropertyName="GeneralConclusions" SizeMode="Fixed"
-                                            CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
+                <telerik:DataGridTemplateColumn x:Uid="goalConclusions" Header="Goal Conclusions" SizeMode="Fixed" 
+                                            CellContentTemplate="{StaticResource GoalConclusionsTemplate}"/>
+                <!--<telerik:DataGridTextColumn x:Uid="generalConclusions" PropertyName="GeneralConclusions" SizeMode="Fixed"
+                                            CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>-->
             </telerik:RadDataGrid.Columns>
         </telerik:RadDataGrid>
 
