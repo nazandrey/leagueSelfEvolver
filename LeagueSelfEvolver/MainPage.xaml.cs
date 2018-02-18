@@ -50,7 +50,8 @@ namespace LeagueSelfEvolver
         private void eventListGrid_KeyUp(object sender, KeyRoutedEventArgs e)
         {
             bool isEditing = e.OriginalSource.GetType().Name == "TextBox";
-            if (e.Key == VirtualKey.Delete && !isEditing) {
+            if (e.Key == VirtualKey.Delete && !isEditing)
+            {
                 Event eventItem = eventListGrid.SelectedItem as Event;
                 eventListGrid.CancelEdit();
                 goalModel.RemoveRow(eventItem);
@@ -61,7 +62,7 @@ namespace LeagueSelfEvolver
         {
             int GridBorderWidth = 6,
                 ColumnBorderWidth = 2,
-                columnBorderWidth = (eventListGrid.Columns.Count-1) * ColumnBorderWidth,
+                columnBorderWidth = (eventListGrid.Columns.Count - 1) * ColumnBorderWidth,
                 widthDelta = GridBorderWidth + columnBorderWidth;
             foreach (DataGridColumn column in eventListGrid.Columns)
             {
@@ -72,7 +73,7 @@ namespace LeagueSelfEvolver
         private void helpButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             helpPopup.IsOpen = !helpPopup.IsOpen;
-        }        
+        }
 
         private void helpPopup_SizeChanged(object sender, SizeChangedEventArgs e)
         {
@@ -88,8 +89,9 @@ namespace LeagueSelfEvolver
             }
         }
 
-        private void ScrollToLastRow() {
+        private void ScrollToLastRow()
+        {
             eventListGrid.ScrollItemIntoView(goalModel.EventList.Last());
         }
-    }
+    }  
 }

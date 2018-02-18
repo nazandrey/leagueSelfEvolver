@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace LeagueSelfEvolver.Model
 {
-    class Conclusion : INotifyPropertyChanged
+    public class Conclusion : INotifyPropertyChanged
     {
         private string _tag;
         private string _description;
