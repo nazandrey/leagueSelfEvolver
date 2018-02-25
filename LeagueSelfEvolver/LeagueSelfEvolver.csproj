@@ -104,6 +104,9 @@
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="Common\RelayCommandWithParam.cs" />
     <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="TagCountStatPage.xaml.cs">
+      <DependentUpon>TagCountStatPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,7 @@
     <Compile Include="Model\ConclusionDictExtensions.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\Goal.cs" />
+    <Compile Include="Model\TagCountStat.cs" />
     <Compile Include="UserControls\EditForm.xaml.cs">
       <DependentUpon>EditForm.xaml</DependentUpon>
     </Compile>
@@ -180,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="TagCountStatPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

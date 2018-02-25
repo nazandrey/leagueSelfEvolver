@@ -120,6 +120,9 @@
   <data name="addBtn.Content" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="countCol.Header" xml:space="preserve">
+    <value>Count</value>
+  </data>
   <data name="generalComment.Header" xml:space="preserve">
     <value>General Comment</value>
   </data>
@@ -161,5 +164,11 @@ So, examples of activities that can be analyzed here are sport, e-sport, speeche
   </data>
   <data name="saveBtn.Content" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="tagCol.Header" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="tagsBtn.Content" xml:space="preserve">
+    <value>Tags</value>
   </data>
 </root>

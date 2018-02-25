@@ -15,7 +15,8 @@ namespace LeagueSelfEvolver.Model
     class GoalModel : INotifyPropertyChanged
     {
         private const string DataPath = @"Data\GoalData.xml";
-        private StorageFolder RoamingFolder = ApplicationData.Current.RoamingFolder;
+        private readonly StorageFolder RoamingFolder = ApplicationData.Current.RoamingFolder;
+        private ObservableCollection<TagCountStat> _tagCountStat;
 
         public GoalModel()
         {
@@ -48,8 +49,13 @@ namespace LeagueSelfEvolver.Model
             }
         }
 
-        public ObservableCollection<Event> EventList { get; set; }
         public string Title { get; set; }
+        public ObservableCollection<Event> EventList { get; set; }
+        public ObservableCollection<TagCountStat> TagCountStat
+        {
+            get { return _tagCountStat == null ? (_tagCountStat = InitTagCountStat()) : _tagCountStat; }
+            set { _tagCountStat = value; }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName]string prop = "")
@@ -84,6 +90,29 @@ namespace LeagueSelfEvolver.Model
             if (eventItem != null) {
                 EventList.Remove(eventItem);
             }
+        }
+
+        private ObservableCollection<TagCountStat> InitTagCountStat()
+        {
+            var tagCountStat = new List<TagCountStat>();
+            foreach (var eventItem in EventList)
+            {
+                foreach (var conclusion in eventItem.GoalConclusions.Concat(eventItem.GeneralConclusions))
+                {
+                    if (conclusion.Tag == "") continue;
+                    var tagCount = tagCountStat.FirstOrDefault((t) => t.Tag == conclusion.Tag);
+                    if (tagCount == null)
+                    {
+                        tagCountStat.Add(new TagCountStat(conclusion.Tag, 1));
+                    }
+                    else
+                    {
+                        tagCount.Count += 1;
+                    }
+                }
+            }
+            var tagCountStatAsObserbableCollection = new ObservableCollection<TagCountStat>(tagCountStat.OrderByDescending(tagCount => tagCount.Count));
+            return tagCountStatAsObserbableCollection;
         }
     }
 }

@@ -16,6 +16,9 @@ using LeagueSelfEvolver.Model;
 using Windows.System;
 using Telerik.UI.Xaml.Controls.Grid;
 using Windows.UI.Core;
+using System.Collections.ObjectModel;
+using Windows.ApplicationModel.Core;
+using Windows.UI.ViewManagement;
 
 // Документацию по шаблону элемента "Пустая страница" см. по адресу http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -92,6 +95,26 @@ namespace LeagueSelfEvolver
         private void ScrollToLastRow()
         {
             eventListGrid.ScrollItemIntoView(goalModel.EventList.Last());
+        }
+
+        private async void Show_Tag_Page(object sender, RoutedEventArgs e)
+        {
+            var viewId = 0;
+
+            var newView = CoreApplication.CreateNewView();
+            await newView.Dispatcher.RunAsync(
+                CoreDispatcherPriority.Normal,
+                () =>
+                {
+                    var frame = new Frame();
+                    frame.Navigate(typeof(TagCountStatPage), null);
+                    Window.Current.Content = frame;
+
+                    viewId = ApplicationView.GetForCurrentView().Id;
+                    Window.Current.Activate();
+                });
+
+            var viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(viewId);
         }
     }  
 }
