@@ -107,7 +107,7 @@ namespace LeagueSelfEvolver
                 () =>
                 {
                     var frame = new Frame();
-                    frame.Navigate(typeof(TagCountStatPage), null);
+                    frame.Navigate(typeof(TagCountStatPage), goalModel);
                     Window.Current.Content = frame;
 
                     viewId = ApplicationView.GetForCurrentView().Id;

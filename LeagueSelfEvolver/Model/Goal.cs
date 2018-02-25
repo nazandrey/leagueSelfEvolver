@@ -53,7 +53,7 @@ namespace LeagueSelfEvolver.Model
         public ObservableCollection<Event> EventList { get; set; }
         public ObservableCollection<TagCountStat> TagCountStat
         {
-            get { return _tagCountStat == null ? (_tagCountStat = InitTagCountStat()) : _tagCountStat; }
+            get { return InitTagCountStat(); }
             set { _tagCountStat = value; }
         }
 
@@ -87,7 +87,8 @@ namespace LeagueSelfEvolver.Model
 
         public void RemoveRow(Event eventItem)
         {
-            if (eventItem != null) {
+            if (eventItem != null)
+            {
                 EventList.Remove(eventItem);
             }
         }
