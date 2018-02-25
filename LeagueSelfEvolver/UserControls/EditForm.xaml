@@ -17,27 +17,30 @@
         <!--<telerikGridPrimitives:DataGridFormEditor>
         </telerikGridPrimitives:DataGridFormEditor>-->
 
-    <UserControl.Resources>
-        <DataTemplate x:Key="goalConclusionTmpl">
+    <UserControl.Resources>        
+        <Style x:Key="StandardMargin" TargetType="FrameworkElement">
+            <Setter Property="Margin" Value="12,6,12,0"></Setter>
+        </Style>
+        <Style x:Key="SingleTextBox" TargetType="TextBox" BasedOn="{StaticResource StandardMargin}">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        </Style>
+        <DataTemplate x:Key="GoalConclusionTmpl">
             <StackPanel Orientation="Horizontal">
                 <TextBox Text="{Binding Tag, Mode=TwoWay}"></TextBox>
                 <TextBox Text="{Binding Description, Mode=TwoWay}"></TextBox>
                 <Button Content="-" Command="{Binding EditItem.DeleteGoalConclusionCommand, ElementName=editForm, Mode=TwoWay}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Stretch"></Button>
             </StackPanel>
         </DataTemplate>
-        <DataTemplate x:Key="generalConclusionTmpl">
+        <DataTemplate x:Key="GeneralConclusionTmpl">
             <StackPanel Orientation="Horizontal">
                 <TextBox Text="{Binding Tag, Mode=TwoWay}"></TextBox>
                 <TextBox Text="{Binding Description, Mode=TwoWay}"></TextBox>
                 <Button Content="-" Command="{Binding EditItem.DeleteGeneralConclusionCommand, ElementName=editForm, Mode=TwoWay}" CommandParameter="{Binding DataContext, RelativeSource={RelativeSource Mode=TemplatedParent}}" HorizontalAlignment="Stretch"></Button>
             </StackPanel>
         </DataTemplate>
-        <Style x:Key="StandardMargin" TargetType="Control">
-            <Setter Property="Margin" Value="12,6,12,0"></Setter>
-        </Style>
-        <Style x:Key="SingleTextBox" TargetType="TextBox" BasedOn="{StaticResource StandardMargin}">
-            <Setter Property="TextWrapping" Value="Wrap"></Setter>
-        </Style>
+        <DataTemplate x:Key="ConclusionsHeaderTmpl">
+            <TextBlock Text="Tag | Description" HorizontalAlignment="Left" Style="{StaticResource StandardMargin}"></TextBlock>
+        </DataTemplate>
     </UserControl.Resources>
 
 
@@ -76,13 +79,15 @@
 
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource StandardMargin}">
                 <StackPanel>
-                    <ListView ItemsSource="{Binding EditItem.GoalConclusions, Mode=TwoWay}" ItemTemplate="{StaticResource goalConclusionTmpl}" Header="Goal Conclusions" />
+                    <TextBlock Text="Goal Conclusions" HorizontalAlignment="Left"></TextBlock>
+                    <ListView ItemsSource="{Binding EditItem.GoalConclusions, Mode=TwoWay}" ItemTemplate="{StaticResource GoalConclusionTmpl}" HeaderTemplate="{StaticResource ConclusionsHeaderTmpl}"/>
                     <Button Content="+" Command="{Binding EditItem.AddGoalConclusionCommand}" HorizontalAlignment="Stretch"></Button>
                 </StackPanel>
             </ScrollViewer>
             <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" Style="{StaticResource StandardMargin}">
                 <StackPanel>
-                    <ListView ItemsSource="{Binding EditItem.GeneralConclusions, Mode=TwoWay}" ItemTemplate="{StaticResource generalConclusionTmpl}" Header="General Conclusions" />
+                    <TextBlock Text="General Conclusions" HorizontalAlignment="Left"></TextBlock>
+                    <ListView ItemsSource="{Binding EditItem.GeneralConclusions, Mode=TwoWay}" ItemTemplate="{StaticResource GeneralConclusionTmpl}" HeaderTemplate="{StaticResource ConclusionsHeaderTmpl}" />
                     <Button Content="+" Command="{Binding EditItem.AddGeneralConclusionCommand}" HorizontalAlignment="Stretch"></Button>
                 </StackPanel>
             </ScrollViewer>
