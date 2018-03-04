@@ -36,18 +36,7 @@ namespace LeagueSelfEvolver
             this.InitializeComponent();
             goalModel = new GoalModel();
             DataContext = goalModel;
-            ScrollToLastRow();
-        }
-
-        private void Save_Xml(object sender, RoutedEventArgs e)
-        {
-            goalModel.SaveToXml();
-        }
-
-        private void Add_Row(object sender, RoutedEventArgs e)
-        {
-            goalModel.AddRow();
-            ScrollToLastRow();
+            ScrollToLastRow(null, null);
         }
 
         private void eventListGrid_KeyUp(object sender, KeyRoutedEventArgs e)
@@ -92,12 +81,12 @@ namespace LeagueSelfEvolver
             }
         }
 
-        private void ScrollToLastRow()
+        private void ScrollToLastRow(object sender, RoutedEventArgs e)
         {
             eventListGrid.ScrollItemIntoView(goalModel.EventList.Last());
         }
 
-        private async void Show_Tag_Page(object sender, RoutedEventArgs e)
+        private async void ShowTagPage(object sender, RoutedEventArgs e)
         {
             var viewId = 0;
 

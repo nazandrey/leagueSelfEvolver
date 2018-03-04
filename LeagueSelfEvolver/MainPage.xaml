@@ -75,9 +75,9 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" x:Name="addBtn" x:Uid="addBtn" Click="Add_Row" HorizontalAlignment="Stretch" Style="{StaticResource firstBtn}"/>
-            <Button Grid.Column="1" x:Name="tagsBtn" x:Uid="tagsBtn" Click="Show_Tag_Page" HorizontalAlignment="Stretch"/>
-            <Button Grid.Column="2" x:Name="saveBtn" x:Uid="saveBtn" Click="Save_Xml" HorizontalAlignment="Stretch"/>
+            <Button Grid.Column="0" x:Name="addBtn" x:Uid="addBtn" Command="{Binding AddEventCommand}" Click="ScrollToLastRow" HorizontalAlignment="Stretch" Style="{StaticResource firstBtn}"/>
+            <Button Grid.Column="1" x:Name="tagsBtn" x:Uid="tagsBtn" Click="ShowTagPage" HorizontalAlignment="Stretch"/>
+            <Button Grid.Column="2" x:Name="saveBtn" x:Uid="saveBtn" Command="{Binding SaveToXmlCommand}" HorizontalAlignment="Stretch"/>
         </Grid>
         <Button x:Name="helpButton" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="10,15,0,0" Background="White" BorderBrush="LightSteelBlue" Padding="0" Tapped="helpButton_Tapped"/>
         <Popup x:Name="helpPopup" Margin="50" SizeChanged="helpPopup_SizeChanged">

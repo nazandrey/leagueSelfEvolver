@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeagueSelfEvolver.Common;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -47,6 +48,9 @@ namespace LeagueSelfEvolver.Model
                     }
                 }
             }
+            AddEventCommand = new RelayCommand(() => AddEvent());
+            DeleteEventCommand = new RelayCommand<Event>((eventItem) => DeleteEvent(eventItem));
+            SaveToXmlCommand = new RelayCommand(() => SaveToXml());
         }
 
         public string Title { get; set; }
@@ -61,6 +65,24 @@ namespace LeagueSelfEvolver.Model
         public void OnPropertyChanged([CallerMemberName]string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
+
+        public RelayCommand SaveToXmlCommand { get; private set; }
+        public RelayCommand AddEventCommand { get; private set; }
+        public RelayCommand<Event> DeleteEventCommand { get; private set; }
+
+
+        private void AddEvent()
+        {
+            EventList.Add(new Event());
+        }
+
+        private void DeleteEvent(Event item)
+        {
+            if (item != null)
+            {
+                EventList.Remove(item);
+            }            
         }
 
         public async void SaveToXml()
