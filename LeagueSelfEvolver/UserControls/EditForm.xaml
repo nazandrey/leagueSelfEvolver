@@ -9,7 +9,8 @@
     xmlns:telerikData="using:Telerik.UI.Xaml.Controls.Data"
     xmlns:telerikDataForm="using:Telerik.UI.Xaml.Controls.Data.DataForm"
     mc:Ignorable="d"
-    x:Name="editForm"    
+    x:Name="editForm"
+    MinWidth="400"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
