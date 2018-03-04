@@ -17,7 +17,7 @@ namespace LeagueSelfEvolver.Model
 
         public static IEnumerable<XElement> ToXml(this ObservableCollection<Conclusion> conclusionDict)
         {
-            return conclusionDict.Select<Conclusion, XElement>((conclusion) =>
+            return conclusionDict.Select((conclusion) =>
             {
                 return conclusion.ToXml();
             });

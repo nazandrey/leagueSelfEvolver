@@ -13,11 +13,6 @@
     MinWidth="400"
     d:DesignHeight="300"
     d:DesignWidth="400">
-
-    
-        <!--<telerikGridPrimitives:DataGridFormEditor>
-        </telerikGridPrimitives:DataGridFormEditor>-->
-
     <UserControl.Resources>        
         <Style x:Key="StandardMargin" TargetType="FrameworkElement">
             <Setter Property="Margin" Value="12,6,12,0"></Setter>
@@ -92,15 +87,7 @@
                     <Button Content="+" Command="{Binding EditItem.AddGeneralConclusionCommand}" HorizontalAlignment="Stretch"></Button>
                 </StackPanel>
             </ScrollViewer>
-            <!--<ListView Grid.Row="3" ItemsSource="{Binding EditItem.GeneralConclusions, Mode=TwoWay}" ItemTemplate="{StaticResource conclusionTmpl}" Header="General Conclusions" Style="{StaticResource StandardMargin}" />-->
         </Grid>
-        <!--<telerikData:RadDataForm x:Name="dataForm" Grid.Row="1" Grid.ColumnSpan="2" Item="{Binding EditItem, Mode=TwoWay}" Background="#FF6983B9">
-
-        </telerikData:RadDataForm>-->
         <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Save" Click="SaveButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></Button>
-        
-
-        <!--<TextBox Header="Name property" Grid.ColumnSpan="2" Text="{Binding EditItem.GoalComment, ElementName=editForm, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Stretch" />-->
-
     </Grid>
 </UserControl>

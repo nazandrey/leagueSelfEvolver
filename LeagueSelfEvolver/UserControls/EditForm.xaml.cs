@@ -22,8 +22,6 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using static LeagueSelfEvolver.MainPage;
 
-// The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace LeagueSelfEvolver.UserControls
 {
     public sealed partial class EditForm : UserControl, IGridExternalEditor, INotifyPropertyChanged
@@ -34,13 +32,8 @@ namespace LeagueSelfEvolver.UserControls
         public EditForm()
         {
             this.InitializeComponent();
-            //dataForm.RegisterTypeEditor(typeof(ObservableCollection<Conclusion>), typeof(CustomEditor));
-
             this.DataContext = this;
         }
-
-
-
 
         public event EventHandler EditCancelled;
         public event EventHandler EditCommitted;
@@ -48,7 +41,7 @@ namespace LeagueSelfEvolver.UserControls
         public void BeginEdit(object item, RadDataGrid owner)
         {
             Event eventItem = item as Event;
-            this.EditItem = eventItem;
+            EditItem = eventItem;
             _source = new Event
             {
                 GoalComment = eventItem.GoalComment,
@@ -110,17 +103,6 @@ namespace LeagueSelfEvolver.UserControls
                 result.Add(new Conclusion(conclusion.Tag, conclusion.Description));
             }
             return result;
-        }
-
-        private void AddItemBtn_Click(object sender, RoutedEventArgs e)
-        {
-            var editItem = _editItem as Event;
-            editItem.GoalConclusions.Add(new Conclusion());
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Debug.Write("rly?");
         }
     }
 }
