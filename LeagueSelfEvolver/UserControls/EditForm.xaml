@@ -35,7 +35,7 @@
             </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="ConclusionsHeaderTmpl">
-            <TextBlock Text="Tag | Description" HorizontalAlignment="Left" Style="{StaticResource StandardMargin}"></TextBlock>
+            <TextBlock x:Uid="editFormConclusionsTooltip" HorizontalAlignment="Left" Style="{StaticResource StandardMargin}"></TextBlock>
         </DataTemplate>
     </UserControl.Resources>
 
@@ -57,10 +57,10 @@
 
         <StackPanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="12,0,0,0" Orientation="Horizontal">
             <SymbolIcon Symbol="Edit" Margin="0,0,6,0"/>
-            <TextBlock VerticalAlignment="Center">Editing...</TextBlock>
+            <TextBlock x:Uid="editFormLabel" VerticalAlignment="Center"></TextBlock>
         </StackPanel>
         
-        <Button Grid.Row="0" Grid.Column="1" Content="Cancel" Click="CancelButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top"></Button>
+        <Button x:Uid="cancelBtn" Grid.Row="0" Grid.Column="1" Click="CancelButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top"></Button>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2" Background="#FFC7C7C7">
             <Grid.RowDefinitions>
@@ -70,24 +70,24 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
-            <TextBox Grid.Row="0" Text="{Binding EditItem.GoalComment, Mode=TwoWay}" Header="Goal Comment" Style="{StaticResource SingleTextBox}"></TextBox>
-            <TextBox Grid.Row="1" Text="{Binding EditItem.GeneralComment, Mode=TwoWay}" Header="General Comment" Style="{StaticResource SingleTextBox}"></TextBox>
+            <TextBox x:Uid="goalComment" Grid.Row="0" Text="{Binding EditItem.GoalComment, Mode=TwoWay}" Style="{StaticResource SingleTextBox}"></TextBox>
+            <TextBox x:Uid="generalComment" Grid.Row="1" Text="{Binding EditItem.GeneralComment, Mode=TwoWay}" Style="{StaticResource SingleTextBox}"></TextBox>
 
             <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Style="{StaticResource StandardMargin}">
                 <StackPanel>
-                    <TextBlock Text="Goal Conclusions" HorizontalAlignment="Left"></TextBlock>
+                    <TextBlock x:Uid="goalConclusionsTextBlock" HorizontalAlignment="Left"></TextBlock>
                     <ListView ItemsSource="{Binding EditItem.GoalConclusions, Mode=TwoWay}" ItemTemplate="{StaticResource GoalConclusionTmpl}" HeaderTemplate="{StaticResource ConclusionsHeaderTmpl}"/>
                     <Button Content="+" Command="{Binding EditItem.AddGoalConclusionCommand}" HorizontalAlignment="Stretch"></Button>
                 </StackPanel>
             </ScrollViewer>
             <ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" Style="{StaticResource StandardMargin}">
                 <StackPanel>
-                    <TextBlock Text="General Conclusions" HorizontalAlignment="Left"></TextBlock>
+                    <TextBlock x:Uid="generalConclusionsTextBlock" HorizontalAlignment="Left"></TextBlock>
                     <ListView ItemsSource="{Binding EditItem.GeneralConclusions, Mode=TwoWay}" ItemTemplate="{StaticResource GeneralConclusionTmpl}" HeaderTemplate="{StaticResource ConclusionsHeaderTmpl}" />
                     <Button Content="+" Command="{Binding EditItem.AddGeneralConclusionCommand}" HorizontalAlignment="Stretch"></Button>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
-        <Button Grid.Row="2" Grid.ColumnSpan="2" Content="Save" Click="SaveButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></Button>
+        <Button x:Uid="saveBtn" Grid.Row="2" Grid.ColumnSpan="2" Click="SaveButton_Click" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></Button>
     </Grid>
 </UserControl>

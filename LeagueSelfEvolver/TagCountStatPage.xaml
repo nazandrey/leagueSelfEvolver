@@ -13,7 +13,7 @@
     >
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock x:Name="titleTextBox" Text="Tags" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0"/>
+        <TextBlock x:Uid="tagsCountStatPageHeader" x:Name="titleTextBox" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10,10,10,0"/>
         <telerik:RadDataGrid x:Name="tagCountListGrid" Margin="10,40,10,10" ItemsSource="{Binding TagCountStat}" UserEditMode="None" 
                              TabIndex="1" AutoGenerateColumns="False" ScrollViewer.HorizontalScrollMode="Disabled" 
                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.IsHorizontalRailEnabled="False"

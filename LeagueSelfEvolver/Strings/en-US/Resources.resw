@@ -120,19 +120,34 @@
   <data name="addBtn.Content" xml:space="preserve">
     <value>Add</value>
   </data>
+  <data name="cancelBtn.Content" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
   <data name="countCol.Header" xml:space="preserve">
     <value>Count</value>
+  </data>
+  <data name="editFormConclusionsTooltip.Text" xml:space="preserve">
+    <value>Tag | Description</value>
+  </data>
+  <data name="editFormLabel.Text" xml:space="preserve">
+    <value>Editing...</value>
   </data>
   <data name="generalComment.Header" xml:space="preserve">
     <value>General Comment</value>
   </data>
-  <data name="generalConclusions.Header" xml:space="preserve">
+  <data name="generalConclusionsColumn.Header" xml:space="preserve">
+    <value>General Conclusions</value>
+  </data>
+  <data name="generalConclusionsTextBlock.Text" xml:space="preserve">
     <value>General Conclusions</value>
   </data>
   <data name="goalComment.Header" xml:space="preserve">
     <value>Goal Comment</value>
   </data>
-  <data name="goalConclusions.Header" xml:space="preserve">
+  <data name="goalConclusionsColumn.Header" xml:space="preserve">
+    <value>Goal Conclusions</value>
+  </data>
+  <data name="goalConclusionsTextBlock.Text" xml:space="preserve">
     <value>Goal Conclusions</value>
   </data>
   <data name="helpControls.Text" xml:space="preserve">
@@ -171,6 +186,9 @@ So, examples of activities that can be analyzed here are sport, e-sport, speeche
     <value>Tag</value>
   </data>
   <data name="tagsBtn.Content" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="tagsCountStatPageHeader.Text" xml:space="preserve">
     <value>Tags</value>
   </data>
 </root>

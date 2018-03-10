@@ -53,9 +53,9 @@
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
                 <telerik:DataGridTextColumn x:Uid="generalComment" PropertyName="GeneralComment" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTemplateColumn x:Uid="goalConclusions" SizeMode="Fixed"
+                <telerik:DataGridTemplateColumn x:Uid="goalConclusionsColumn" SizeMode="Fixed"
                                             CellContentTemplate="{StaticResource GoalConclusionsTemplate}" />
-                <telerik:DataGridTemplateColumn x:Uid="generalConclusions" SizeMode="Fixed"
+                <telerik:DataGridTemplateColumn x:Uid="generalConclusionsColumn" SizeMode="Fixed"
                                             CellContentTemplate="{StaticResource GeneralConclusionsTemplate}" />
             </telerik:RadDataGrid.Columns>
         </telerik:RadDataGrid>
