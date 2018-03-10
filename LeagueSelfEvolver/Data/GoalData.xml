@@ -7,11 +7,20 @@
       <GeneralComment>General commment go here</GeneralComment>
       <GoalConclusions>
         <Conclusion>
-          <Tag></Tag>
-          <Description>Goal conclusions go here (you always can see help on the right top corner (click "?" sign))</Description>
+          <Tag>Tag</Tag>
+          <Description><![CDATA[<-]]> There is tag inside, edit to see</Description>
+        </Conclusion>
+        <Conclusion>
+          <Tag>Help</Tag>
+          <Description>Goal conclusions go here</Description>
         </Conclusion>
       </GoalConclusions>
-      <GeneralConclusions>General conclusions go here </GeneralConclusions>
+      <GeneralConclusions>
+        <Conclusion>
+          <Tag>Help</Tag>
+          <Description>You always can see help on the right top corner (click "?" sign)</Description>
+        </Conclusion>
+      </GeneralConclusions>
     </Event>
     <Event>
       <GoalComment>Select row and push "del" to delete row (you can try it with that row and with others too)</GoalComment>
@@ -21,18 +30,19 @@
     </Event>
     <Event>
       <GoalComment>Save button to save your changes (just exit from app doesnt work)</GoalComment>
-      <GeneralComment>Add button will add new row</GeneralComment>
+      <GeneralComment>Add button will add new row, Tags button will show aggrageted tags</GeneralComment>
       <GoalConclusions>
         <Conclusion>
-          <Tag>Tag</Tag>          
+          <Tag>Ready</Tag>          
           <Description>So now you are ready to use this app!</Description>
         </Conclusion>
-        <Conclusion>
-          <Tag>Tag2</Tag>
-          <Description>So now you are ready to use this app yeeah!</Description>
-        </Conclusion>
       </GoalConclusions>      
-      <GeneralConclusions>Feel free to delete all of these rows!</GeneralConclusions>
+      <GeneralConclusions>
+        <Conclusion>
+          <Tag>Ready</Tag>
+          <Description>Feel free to delete all of these rows!</Description>
+        </Conclusion>
+      </GeneralConclusions>
     </Event>
   </EventList>
 </Goal>
