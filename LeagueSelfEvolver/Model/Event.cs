@@ -1,70 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using LeagueSelfEvolver.Common;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace LeagueSelfEvolver.Model
 {
-    class Event : INotifyPropertyChanged
+    public class Event : INotifyPropertyChanged
     {
-        private string goalComment;
-        private string generalComment;
-        private string goalConclusions;
-        private string generalConclusions;
+        private string _goalComment;
+        private string _generalComment;
 
-        public Event()
+        private ObservableCollection<Conclusion> _goalConclusions;
+        private ObservableCollection<Conclusion> _generalConclusions;
+
+        public Event() : this("", "", new ObservableCollection<Conclusion>(), new ObservableCollection<Conclusion>()) { }
+        public Event(XElement eventEl) : this(
+            eventEl.Element("GoalComment").Value, 
+            eventEl.Element("GeneralComment").Value, 
+            ConclusionDictExtensions.InitConclusions(eventEl, "GoalConclusions"), 
+            ConclusionDictExtensions.InitConclusions(eventEl, "GeneralConclusions")
+            ) { }
+
+        public Event(string goalComment, string generalComment, ObservableCollection<Conclusion> goalConclusions, ObservableCollection<Conclusion> generalConclusions)
         {
-            goalComment = "";
-            generalComment = "";
-            goalConclusions = "";
-            generalConclusions = "";
+            _goalComment = goalComment;
+            _generalComment = generalComment;
+            _goalConclusions = goalConclusions;
+            _generalConclusions = generalConclusions;
+            AddGoalConclusionCommand = new RelayCommand(() => AddGoalConclusion());
+            AddGeneralConclusionCommand = new RelayCommand(() => AddGeneralConclusion());
+            DeleteGoalConclusionCommand = new RelayCommand<Conclusion>((conclusion) => DeleteGoalConclusion(conclusion));
+            DeleteGeneralConclusionCommand = new RelayCommand<Conclusion>((conclusion) => DeleteGeneralConclusion(conclusion));
+        }             
+        
+        public ObservableCollection<Conclusion> GoalConclusions {
+            get { return _goalConclusions; }
+            set { _goalConclusions = value; }
         }
-        public Event(XElement eventEl)
+
+        public ObservableCollection<Conclusion> GeneralConclusions
         {
-            goalComment = eventEl.Element("GoalComment").Value;
-            generalComment = eventEl.Element("GeneralComment").Value;
-            goalConclusions = eventEl.Element("GoalConclusions").Value;
-            generalConclusions = eventEl.Element("GeneralConclusions").Value;
+            get { return _generalConclusions; }
+            set { _generalConclusions = value; }
         }
 
         public string GoalComment
         {
-            get { return goalComment; }
+            get { return _goalComment; }
             set
             {
-                goalComment = value;
+                _goalComment = value;
                 OnPropertyChanged("GoalComment");
             }
         }
+
         public string GeneralComment
         {
-            get { return generalComment; }
+            get { return _generalComment; }
             set
             {
-                generalComment = value;
+                _generalComment = value;
                 OnPropertyChanged("GeneralComment");
-            }
-        }
-        public string GoalConclusions
-        {
-            get { return goalConclusions; }
-            set
-            {
-                goalConclusions = value;
-                OnPropertyChanged("GoalConclusions");
-            }
-        }
-        public string GeneralConclusions
-        {
-            get { return generalConclusions; }
-            set
-            {
-                generalConclusions = value;
-                OnPropertyChanged("GeneralConclusions");
             }
         }
 
@@ -74,13 +71,38 @@ namespace LeagueSelfEvolver.Model
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+        public RelayCommand AddGoalConclusionCommand { get; private set; }
+        public RelayCommand AddGeneralConclusionCommand { get; private set; }
+        public RelayCommand<Conclusion> DeleteGoalConclusionCommand { get; private set; }
+        public RelayCommand<Conclusion> DeleteGeneralConclusionCommand { get; private set; }
+
+        private void DeleteGoalConclusion(Conclusion item)
+        {
+            _goalConclusions.Remove(item);
+        }
+
+        private void DeleteGeneralConclusion(Conclusion item)
+        {
+            _generalConclusions.Remove(item);
+        }
+
+        private void AddGoalConclusion()
+        {
+            _goalConclusions.Add(new Conclusion());
+        }
+
+        private void AddGeneralConclusion()
+        {
+            _generalConclusions.Add(new Conclusion());
+        }
+
         public XElement ToXml()
         {
             return new XElement("Event",
                 new XElement("GoalComment", GoalComment),
                 new XElement("GeneralComment", GeneralComment),
-                new XElement("GoalConclusions", GoalConclusions),
-                new XElement("GeneralConclusions", GeneralConclusions)
+                new XElement("GoalConclusions", _goalConclusions.ToXml()),
+                new XElement("GeneralConclusions", _generalConclusions.ToXml())
             );
         }
     }

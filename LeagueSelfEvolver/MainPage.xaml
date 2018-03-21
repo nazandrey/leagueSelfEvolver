@@ -1,4 +1,4 @@
-﻿<Page
+﻿<Page x:Name="page"
     x:Class="LeagueSelfEvolver.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -7,7 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:telerik="using:Telerik.UI.Xaml.Controls.Grid"
     xmlns:common="using:LeagueSelfEvolver.Common"
-    mc:Ignorable="d" 
+    xmlns:model="using:LeagueSelfEvolver.Model"
+    xmlns:userControls="using:LeagueSelfEvolver.UserControls"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance Type=model:GoalModel, IsDesignTimeCreatable=True}" 
     SizeChanged="Page_SizeChanged"
     KeyDown="Page_KeyDown"
     >
@@ -19,10 +22,13 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBox x:Name="titleTextBox" Text="{Binding Title, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="50,10,10,0" Background="{x:Null}" BorderBrush="{x:Null}" TabIndex="2"/>
 
-        <telerik:RadDataGrid x:Name="eventListGrid" Margin="10,60,10,47" ItemsSource="{Binding EventList}" UserEditMode="Inline" 
+        <telerik:RadDataGrid x:Name="eventListGrid" Margin="10,60,10,47" ItemsSource="{Binding EventList}" UserEditMode="External" 
                              KeyUp="eventListGrid_KeyUp" TabIndex="1" AutoGenerateColumns="False" ScrollViewer.HorizontalScrollMode="Disabled" 
                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.IsHorizontalRailEnabled="False"
                              UserGroupMode="Disabled">
+            <telerik:RadDataGrid.ExternalEditor>
+                <userControls:EditForm />
+            </telerik:RadDataGrid.ExternalEditor>
             <telerik:RadDataGrid.Resources>
                 <Style x:Key="WrapTextBlockStyle" TargetType="TextBlock">
                     <Setter Property="TextWrapping" Value="Wrap"></Setter>
@@ -32,16 +38,25 @@
                     <Setter Property="TextWrapping" Value="Wrap"></Setter>
                     <Setter Property="Padding" Value="8"></Setter>
                 </Style>
+                <DataTemplate x:Key="ConclusionTemplate">
+                    <TextBlock Text="{Binding Description}" />
+                </DataTemplate>
+                <DataTemplate x:Key="GoalConclusionsTemplate">
+                    <ListView ItemsSource="{Binding GoalConclusions}" ItemTemplate="{StaticResource ConclusionTemplate}"/>
+                </DataTemplate>
+                <DataTemplate x:Key="GeneralConclusionsTemplate">
+                    <ListView ItemsSource="{Binding GeneralConclusions}" ItemTemplate="{StaticResource ConclusionTemplate}"/>
+                </DataTemplate>
             </telerik:RadDataGrid.Resources>
             <telerik:RadDataGrid.Columns>
                 <telerik:DataGridTextColumn x:Uid="goalComment" PropertyName="GoalComment" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
                 <telerik:DataGridTextColumn x:Uid="generalComment" PropertyName="GeneralComment" SizeMode="Fixed"
                                             CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTextColumn x:Uid="goalConclusions" PropertyName="GoalConclusions" SizeMode="Fixed"
-                                            CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
-                <telerik:DataGridTextColumn x:Uid="generalConclusions" PropertyName="GeneralConclusions" SizeMode="Fixed"
-                                            CellContentStyle="{StaticResource WrapTextBlockStyle}" CellEditorStyle="{StaticResource WrapEditTextBoxStyle}"/>
+                <telerik:DataGridTemplateColumn x:Uid="goalConclusionsColumn" SizeMode="Fixed"
+                                            CellContentTemplate="{StaticResource GoalConclusionsTemplate}" />
+                <telerik:DataGridTemplateColumn x:Uid="generalConclusionsColumn" SizeMode="Fixed"
+                                            CellContentTemplate="{StaticResource GeneralConclusionsTemplate}" />
             </telerik:RadDataGrid.Columns>
         </telerik:RadDataGrid>
 
@@ -57,10 +72,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" x:Name="addBtn" x:Uid="addBtn" Click="Add_Row" HorizontalAlignment="Stretch" Style="{StaticResource firstBtn}"/>
-            <Button Grid.Column="1" x:Name="saveBtn" x:Uid="saveBtn" Click="Save_Xml" HorizontalAlignment="Stretch"/>
+            <Button Grid.Column="0" x:Name="addBtn" x:Uid="addBtn" Command="{Binding AddEventCommand}" Click="ScrollToLastRow" HorizontalAlignment="Stretch" Style="{StaticResource firstBtn}"/>
+            <Button Grid.Column="1" x:Name="tagsBtn" x:Uid="tagsBtn" Click="ShowTagPage" HorizontalAlignment="Stretch"/>
+            <Button Grid.Column="2" x:Name="saveBtn" x:Uid="saveBtn" Command="{Binding SaveToXmlCommand}" HorizontalAlignment="Stretch"/>
         </Grid>
         <Button x:Name="helpButton" Content="?" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="30" Margin="10,15,0,0" Background="White" BorderBrush="LightSteelBlue" Padding="0" Tapped="helpButton_Tapped"/>
         <Popup x:Name="helpPopup" Margin="50" SizeChanged="helpPopup_SizeChanged">
@@ -68,7 +85,7 @@
                 <TextBlock TextWrapping="Wrap" x:Uid="helpControls" Margin="0 0 0 20">
                 </TextBlock>
                 <ToggleButton x:Name="helpGuidanceToggle" x:Uid="helpGuidanceToggle"></ToggleButton>
-                <TextBlock Visibility="{x:Bind helpGuidanceToggle.IsChecked, ConverterParameter=Reverse, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}" TextWrapping="Wrap" x:Uid="helpGuidance">                    
+                <TextBlock Visibility="{x:Bind helpGuidanceToggle.IsChecked, ConverterParameter=Reverse, Converter={StaticResource booleanToVisibilityConverter}, Mode=OneWay}" TextWrapping="Wrap" x:Uid="helpGuidance">
                 </TextBlock>
             </StackPanel>
         </Popup>
